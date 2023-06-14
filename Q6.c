@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #define MAX_SIZE 100
 int stack[MAX_SIZE];
-int sorted_Stack[MAX_SIZE];
+int aux_stack[MAX_SIZE];
 int top = -1;
 void push(int data) 
 {
@@ -29,23 +29,23 @@ int pop()
 void sort_stack() 
 {
     int temp;
-    int sortedTop = -1;
+    int aux_top = -1;
 
     while (top != -1) 
     {
         temp = pop();
-        while (sortedTop != -1 && sorted_Stack[sortedTop] < temp) 
+        while (aux_top != -1 && aux_stack[aux_top] < temp) 
         {
-            push(sorted_Stack[sortedTop]);
-            sortedTop--;
+            push(aux_stack[aux_top]);
+            aux_top--;
         }
-        sortedTop++;
-        sorted_Stack[sortedTop] = temp;
+        aux_top++;
+        aux_stack[aux_top] = temp;
     }
-    while (sortedTop != -1) 
+    while (aux_top != -1) 
     {
-        push(sorted_Stack[sortedTop]);
-        sortedTop--;
+        push(aux_stack[aux_top]);
+        aux_top--;
     }
 }
 int main() 

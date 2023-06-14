@@ -1,4 +1,4 @@
-// basic queue implementation for strings
+//basic queue implementation for strings
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
